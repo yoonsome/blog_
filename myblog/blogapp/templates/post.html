@@ -1,0 +1,34 @@
+{% extends 'base_home.html' %}
+
+{%block css%}
+{%load static %}
+<link rel="stylesheet" href="{% static "blogapp/style_post.css" %}">
+{%endblock%}
+
+{%block button %}
+<button type="button" id="home" onclick="location.href='/home/'">home</button>
+{%endblock%}
+{% block content %}
+<div class="ment_parent">
+    <div id="_ment">Welcome here, yoonsome.</div>
+</div>
+<div class="post_parent">
+    <div class="post_section">
+        <div class="post_head">
+            <select id="post_tag" required>
+                <option value="daily" selected>daily</option>
+                <option value="memo">memo</option>
+                <option value="think">think</option>
+                <option value="wish">wish</option>
+            </select>
+            <input type="text" id="post_title" placeholder="title" required/>
+        </div>
+        <div class="post_body">
+            <textarea id="text_body_input" required></textarea>
+            <input type="file" id="file"/>
+        </div>
+        <button type="submit" id="submit" >post</button>
+        <button type="cancel" id="cancel" onclick="location.href='/home/'">cancel</button>
+    </div>
+</div>
+{%endblock%}

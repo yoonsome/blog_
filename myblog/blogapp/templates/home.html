@@ -1,0 +1,69 @@
+{% extends 'base_home.html' %}
+{%block css%}
+{%load static %}
+<link rel="stylesheet" href="{% static "blogapp/style_home.css" %}">
+{%endblock%}
+
+{%block button %}
+<button type="button" id="post" onclick="location.href='/post/'">post</button>
+{%endblock%}
+
+{% block content %}
+<div class="profile">
+    {%load static %}
+    <img src="{%static 'blogapp/light..png' %}" class = "profile_img">
+    <div id="ment">Welcome here, yoonsome.</div>
+</div>
+<div class="log">
+    <ul>
+        <li>
+            <a href="/post_ex/">
+                <div class="image">
+                    <div class="image_tag">#daily</div>
+                    <img src="{%static 'blogapp/bed.jpg'%}">
+                </div>
+                <div>
+                    <h3>자도 자도 졸려</h3>
+                    <h5>오늘도 다섯시에 일어났다...무려 14시간 잤다...</h5>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="image">
+                    <div class="image_tag">#memo</div>
+                    <img src="{%static 'blogapp/office.jpg'%}">
+                </div>
+                <div>
+                    <h3>WEB 2주차</h3>
+                    <h5>이번주는 JS, 지난주에 HTML+CSS 재미써!!!</h5>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="image">
+                    <div class="image_tag">#wish</div>
+                    <img src="{%static 'blogapp/beer.jpg'%}">
+                </div>
+                <div>
+                    <h3>친구들 보고싶다</h3>
+                    <h5>집콕한지 삼십일째...현관비밀번호를 까먹겠다...</h5>
+                </div>
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <div class="image">
+                    <div class="image_tag">#think</div>
+                    <img src="{%static 'blogapp/think.png'%}">
+                </div>
+                <div>
+                    <h3>요즘 드는 생각</h3>
+                    <h5>새해를 맞아 이런저런 생각이 든다.</h5>
+                </div>
+            </a>
+        </li>
+    </ul>
+</div>
+{%endblock%}

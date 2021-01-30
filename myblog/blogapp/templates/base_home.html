@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>yoonsome</title>
+    {% load static %}
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
+    {%block css%}{%endblock%}
+</head>
+<body>
+    <div id="info">
+        &nbsp;#&nbsp;note to write some thinking of today.
+    </div>
+    <div class="banner_button">
+        {% block button %}{%endblock%}
+        <button type="button" id="logout" onclick="location.href='/'">logout</button>
+    </div>
+    {% block content %} {% endblock%}
+</body>
+</html>

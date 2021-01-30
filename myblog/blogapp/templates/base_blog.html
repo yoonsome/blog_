@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="UTF-8">
+        <title>yoonsome</title>
+        {% load static %}
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Crete+Round&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static "blogapp/style.css" %}">
+    </head>
+    <body>
+        <div id="info">
+            &nbsp;#&nbsp;note to write some thinking of today.
+        </div>
+        <div class="profile">
+            <img src="{%static 'blogapp/light..png' %}">
+            <div class="text">
+                <div id="ment">Welcome here, yoonsome.</div>
+                {% block content %}{% endblock %}
+            </div>
+            
+            
+        </div>
+    </body>
+    </html>
+    
