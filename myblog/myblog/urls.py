@@ -26,4 +26,5 @@ urlpatterns = [
     path('post_ex/', blogapp.views.post_ex, name='post_ex'),
     path('post/', blogapp.views.post, name='post'),
     path('signup/', blogapp.views.signup, name='signup'),
+    path('logout/', blogapp.views.logout, name='logout'),
 ]

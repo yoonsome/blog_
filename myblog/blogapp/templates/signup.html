@@ -1,15 +1,21 @@
 {% extends 'base_blog.html' %}
 {% block content %}
-<div class="signup">
-    <div class="explain">Type your name.</div>
-    <input type="text" placeholder="name"/>
-    <div class="explain">Type your email address.</div>
-    <input type="text" placeholder="email"/>
-    <div class="explain">Type your password.</div>
-    <input type="password" placeholder="password"/>
-</div>
-<div class="buttonlog">
-    <button type="button" id="back" onclick="location.href='/'">back</button>
-    <button type="button" id="submit" onclick="location.href='/'">make account</button>
-</div>
+
+<form method="POST" action="{%url 'signup'%}">
+    {% csrf_token %}
+    <div class="signup">
+        <div class="explain">Type your name.</div>
+        <input name="username" type="text" placeholder="name"/>
+        <div class="explain">Type your password.</div>
+        <input name="password1" type="password" placeholder="password"/>
+        <div class="explain">Confirm your password.</div>
+        <input name="password2" type="password" placeholder="password"/>
+    
+    </div>
+    <div class="buttonlog">
+        <button type="button" id="back" onclick="location.href='/'">back</button>
+        <input type="submit" id="submit" value="sign up">
+    </div>
+</form>
+
 {%endblock%}

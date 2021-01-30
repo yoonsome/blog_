@@ -1,13 +1,24 @@
 {% extends 'base_blog.html' %}
 {% block content %}
-<div class="login">
-    <div class="explain">Type your ID.</div>
-    <input type="text" placeholder="id"/>
-    <div class="explain">Type your PWD.</div>
-    <input type="password" placeholder="password"/>
-</div>
-<div class="buttonlog">
-    <button type="button" id="back" onclick="location.href='/'">back</button>
-    <button type="button" id="submit" onclick="location.href='/home/'">login</button>
-</div>
+
+
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="login">
+        <div class="explain">Type your ID.</div>
+        <input name="username" type="text" placeholder="id"/>
+        <div class="explain">Type your PWD.</div>
+        <input name="password" type="password" placeholder="password"/>
+    
+    </div>
+    <div class="buttonlog">
+        <button type="button" id="back" onclick="location.href='/'">back</button>
+        <input type="submit" id="submit" value="login">
+    </div>
+</form>
+
+{% if error %}
+{{error}}
+{% endif %}
+
 {%endblock%}
