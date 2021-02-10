@@ -3,7 +3,7 @@ body{
     margin: 0px;
     background-image: url("tile.jpg");
     background-repeat: repeat;
-    height: 100%;
+    height: 100vh;
 }
 #info{
     background-color:rgb(224, 224, 224);
@@ -69,72 +69,45 @@ body{
     margin: 0 auto;
 }
 
-ul{
-    font-size: 0px;
-    padding:0px;
-}
-
-ul > li{
-    display: inline-block;
-    vertical-align: top;
-    width: 50%;
-}
-
-ul > li > a{
-    font-family: 'Do Hyeon', sans-serif;
-    display:block;
-    width: auto;
-    text-decoration: none;
-    margin: 10px;
-}
-
-ul > li > a .image{
-    position: relative;
-    overflow: hidden;
-}
-
-ul > li > a .image .image_tag{
-    position: absolute;
-    bottom: 150%;
-    left:30px;
-    z-index: 2;
-    font-size: 22px;
-    font-weight: 500;
-    font-family: 'Crete Round', serif;
-}
-
-ul > li > a .image{
-    width: 100%;
-}
-
-ul > li > a h3{
-    font-size:  35px;
-    text-align: center;
-    color:black;
-    font-weight: 300;
-    margin-bottom: 0px;
-}
-
-ul > li > a h5{
-    font-size: 26px;
-    text-align: center;
-    color:gray;
-    font-weight:100;
-    margin-top: 5px;
-}
 img{
     width: 100%;
     height: 100%;
 }
 
-ul > li > a:hover .image_tag{
-    font-size: 50px;
-    color: rgb(255, 255, 255);
-    bottom: 50%;
-    transition:all .40s;
+.card:hover{
+    border:2px solid rgba(77, 77, 77, 0.993);
+    transition: transform 1.5s;
 }
 
-ul > li > a .image::after{
+.img_card{
+    position: relative;
+    overflow: hidden;
+}
+
+.img_card > .card-img-top{
+    transition: transform 1.3s;
+}
+
+.img_card:hover > .card-img-top{
+    transform : scale(1.1);
+}
+
+.img_card > .image_tag{
+    position: absolute;
+    bottom: 150%;
+    left:30px;
+    z-index: 2;
+    font-size: 20px;
+    font-weight: 500;
+    font-family: 'Crete Round', serif;
+}
+.img_card:hover > .image_tag{
+    font-size: 45px;
+    color: rgba(219, 219, 219, 0.5);
+    bottom: 50%;
+    transition:all .50s;
+}
+.img_card > .card-img-top::after{
     content:'';
     display: block;
     position: absolute;
@@ -142,14 +115,41 @@ ul > li > a .image::after{
     left:0;
     width: 100%;
     height: 100%;
-    background:rgba(0,0,0,.6);
+    background:rgba(0, 0, 0, 0.616);
     z-index: 1;
     opacity: 0;
     transition: all .40s;
 }
 
-ul > li > a:hover .image::after{
+.img_card:hover > .card-img-top::after{
     opacity: 1;
+}
+
+.body_box{
+    display: flex;
+    flex-flow: column;
+}
+
+.page{
+    display: block;
+    text-align: center;
+    margin: 20px;
+}
+
+.page>a{
+    font-size: 20px;
+    text-decoration:none;
+    color:gray;
+    background-color: rgba(194, 194, 194, 0.356);
+}
+.btn-primary{
+    background-color: rgb(107, 107, 107);
+    border: none;
+}
+
+.btn-primary:hover{
+    background-color: rgb(175, 175, 175);
+    color: rgb(43, 43, 43);
 }
 
 @media(max-width:1020px){

@@ -12,23 +12,27 @@
 <div class="ment_parent">
     <div id="_ment">Welcome here, yoonsome.</div>
 </div>
-<div class="post_parent">
+
+<form method="POST" action="{% url 'create' %}" enctype="multipart/form-data" class="post_parent">
+    {% csrf_token %}
     <div class="post_section">
         <div class="post_head">
-            <select id="post_tag" required>
-                <option value="daily" selected>daily</option>
-                <option value="memo">memo</option>
-                <option value="think">think</option>
-                <option value="wish">wish</option>
+            <select name="tag" id="post_tag"  name='tag' required>
+                <option value="da" selected>daily</option>
+                <option value="me">memo</option>
+                <option value="th">think</option>
+                <option value="wi">wish</option>
             </select>
-            <input type="text" id="post_title" placeholder="title" required/>
+            <input type="text" name="title" id="post_title" placeholder="title" required/>
         </div>
         <div class="post_body">
-            <textarea id="text_body_input" required></textarea>
-            <input type="file" id="file"/>
+            <textarea name="body" id="text_body_input" required></textarea>
+            <input type="file" id="file" name="imgs" value="add file."/>
         </div>
-        <button type="submit" id="submit" >post</button>
+        <input type="submit" id="submit" value="post">
         <button type="cancel" id="cancel" onclick="location.href='/home/'">cancel</button>
     </div>
-</div>
+</form>
+
+
 {%endblock%}

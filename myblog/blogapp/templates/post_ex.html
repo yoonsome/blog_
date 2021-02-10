@@ -9,26 +9,29 @@
 <button type="button" id="home" onclick="location.href='/home/'">home</button>
 {%endblock%}
 {% block content %}
+
 <div class="ment_parent">
     <div id="_ment">Welcome here, yoonsome.</div>
 </div>
 <div class="post_parent">
     <div class="post_section">
         <div class="post_head">
-            <input type="text" id="post_tag" value="daily" readonly>
-            <input type="text" id="post_title" value="자도 자도 졸려"readonly/>
+            <input type="text" id="post_tag" value="{{blog.get_tag_display}}" readonly>
+            <div id="post_title">{{blog.title}}</div>
         </div>
         <div class="post_body">
-            <img id="body_image" src="{%static 'blogapp/bed.jpg'%}" width="100%">
-            <textarea id="text_body" readonly>안녕하세요. 왜 너무 졸릴까요. 맨날 새벽 다섯시에 자고 다음날 오후 세시 넘어서 일어나요. 생체리듬이 바뀌었네요. 왜 이럴까요. 되돌려야 할텐데 말이에요.
+            {% for photo in blog.photo_set.all%}
+            <img src="{{photo.image.url}}" id="body_image" class="card-img-top alt image" alt="photo"><br>
+            {% endfor %}
+            <textarea id="text_body" readonly>{{blog.body}}
             </textarea>
             <div>
                 <button type="button" onclick="location.href='/home/'"id="back" >back</button>
-                <button type="button" onclick="location.href=''" id="edit" >edit</button>
+                <button type="button" onclick="location.href='{% url 'edit' blog.id %}'" id="edit" >edit</button>
+                <button type="button" onclick="location.href='{% url 'delete' blog.id %}'" id="edit" >delete</button>
             </div>
         </div>
-        
-        
     </div>
 </div>
+
 {%endblock%}

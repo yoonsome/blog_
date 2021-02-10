@@ -1,4 +1,4 @@
-html{height: 100%;}
+html{height: 100vh;}
 body{
     margin: 0px;
     background-image: url("tile.jpg");
@@ -90,6 +90,7 @@ body{
 	color: #333; 
     padding: 9px 18px;
     margin: 10px 0px;
+    border: #333 solid 2px;
 }
 #post_tag{
     flex:1;
@@ -105,7 +106,7 @@ body{
 .post_body{
     display:flex;
     flex-flow: column nowrap;
-    height: 85%;
+    height: 90%;
     width: 100%;
     max-width: 1800px;
 }
@@ -131,7 +132,8 @@ body{
 #file{
     font-size: 18px;
     padding: 5px;
-    background-color: #fff;
+    height: 200px;
+    background-color: rgb(255, 255, 255);
     border: #333 solid 1px;
     margin: 10px 0px;
     font-family: 'Do Hyeon', sans-serif;

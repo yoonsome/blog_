@@ -17,6 +17,9 @@ from django.contrib import admin
 from django.urls import path
 import blogapp.views
 import userapp.views
+#이미지 위해 추가
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -24,7 +27,11 @@ urlpatterns = [
     path('home/', blogapp.views.home, name='home'),
     path('login/', blogapp.views.login, name='login'),
     path('post_ex/', blogapp.views.post_ex, name='post_ex'),
-    path('post/', blogapp.views.post, name='post'),
+    path('create/',blogapp.views.create, name='create'),
     path('signup/', blogapp.views.signup, name='signup'),
     path('logout/', blogapp.views.logout, name='logout'),
-]
+    path('post/', blogapp.views.blogpost, name='newblog'),
+    path('home/<int:blog_id>',blogapp.views.detail, name='detail'),
+    path('home/<int:blog_id>/delete',blogapp.views.delete, name='delete'),
+    path('home/<int:blog_id>/edit', blogapp.views.edit, name='edit'),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

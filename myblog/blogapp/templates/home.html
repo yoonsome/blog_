@@ -5,7 +5,9 @@
 {%endblock%}
 
 {%block button %}
+<button type="button" id="post">👨🏻‍🦲 {{user}}</button>
 <button type="button" id="post" onclick="location.href='/post/'">post</button>
+<button type="button" id="logout" onclick="location.href='/logout'">{{login}}</button>
 {%endblock%}
 
 {% block content %}
@@ -14,64 +16,42 @@
     <img src="{%static 'blogapp/light..png' %}" class = "profile_img">
     <div id="ment">Welcome here, yoonsome.</div>
 </div>
-{% for blog in blogs.all %}
-    <h1>{{blog.title}}</h1>
-    <p>{{blog.pub_date}}</p>
-    <p>{{blog.body}}</p>
-    <br>
-    <br>
-    
-{%endfor%}
-<div class="log">
-    <ul>
-        <li>
-            <a href="/post_ex/">
-                <div class="image">
-                    <div class="image_tag">#daily</div>
-                    <img src="{%static 'blogapp/bed.jpg'%}">
-                </div>
-                <div>
-                    <h3>자도 자도 졸려</h3>
-                    <h5>오늘도 다섯시에 일어났다...무려 14시간 잤다...</h5>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <div class="image">
-                    <div class="image_tag">#memo</div>
-                    <img src="{%static 'blogapp/office.jpg'%}">
-                </div>
-                <div>
-                    <h3>WEB 2주차</h3>
-                    <h5>이번주는 JS, 지난주에 HTML+CSS 재미써!!!</h5>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <div class="image">
-                    <div class="image_tag">#wish</div>
-                    <img src="{%static 'blogapp/beer.jpg'%}">
-                </div>
-                <div>
-                    <h3>친구들 보고싶다</h3>
-                    <h5>집콕한지 삼십일째...현관비밀번호를 까먹겠다...</h5>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="">
-                <div class="image">
-                    <div class="image_tag">#think</div>
-                    <img src="{%static 'blogapp/think.png'%}">
-                </div>
-                <div>
-                    <h3>요즘 드는 생각</h3>
-                    <h5>새해를 맞아 이런저런 생각이 든다.</h5>
-                </div>
-            </a>
-        </li>
-    </ul>
+
+<div class="body_box">
+    <div class ="post_card" style="display:flex; flex-wrap: wrap; width: 80vw; margin: 0 auto;">
+        {% for blog in posts %}
+        <div class="card" style="width: 24vw;margin: 12px;">
+            <div class="img_card">
+                {% for photo in blog.photo_set.all%}
+                <img src="{{photo.image.url}}" class="card-img-top alt image" alt="photo"><br>
+                {% endfor %}
+                <div class="image_tag"># {{blog.get_tag_display}}</div>
+            </div>
+            
+            <div class="card-body">
+                <h3 class="card-title">{{blog.title}}</h3>
+                <p class="card-text">{{blog.pub_date}}</p>
+                <p class="card-text">{{blog.summary}}</p>
+                <p class="card-text">@{{blog.writer}}</p>
+                <a href="{% url 'detail' blog.id %}" class="btn btn-primary">Show more</a>
+            </div>
+        </div>
+    {%endfor%}
+    </div>
+
+    <div class="page">
+        {% if posts.has_previous %}
+        <a href="?page=1">[ first ]</a>
+        <a href="?page={{posts.previous_page_number}}">[ prev page ]</a>
+        {% endif %}
+        <span>{{posts.number}}</span>
+        <span>/</span>
+        <span>{{posts.paginator.num_pages}}</span>
+        {% if posts.has_next %}
+        <a href="?page={{posts.next_page_number}}">[ next page ]</a>
+        <a href="?page={{posts.paginator.num_pages}}">[ last ]</a>
+        {% endif %}
+    </div>
 </div>
+
 {%endblock%}
