@@ -14,7 +14,7 @@ from django.contrib.auth.decorators import login_required
 
 def blog(request):
     if request.user.is_authenticated:
-        return render(request,'home.html')
+        return redirect('home')
     else:
         return render(request,'blog.html')
 
