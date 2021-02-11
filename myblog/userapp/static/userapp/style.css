@@ -1,0 +1,118 @@
+body{
+    margin: 0px;
+    /* background-color: #f6f6f6; */
+    background-image: url("tile.jpg");
+    background-repeat: repeat;
+}
+#info{
+    background-color:rgb(224, 224, 224);
+    font-size: 24px;
+    color:rgb(107, 107, 107);
+    font-family: 'Crete Round', serif;
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.profile{
+    display:flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    height: 85vh;
+    padding-bottom: 100px;
+    border-bottom: rgb(224, 224, 224) solid 2px;
+}
+
+img{
+    width:30%;
+    margin-right: 50px;
+}
+
+.text{
+    display: inline-flex;
+    flex-flow: column;
+    align-content: center;
+}
+#ment{
+    font-size: 45px;
+    font-family: 'Crete Round', serif;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+.button{
+    display:flex;
+    flex-flow: row wrap;
+}
+
+.buttonlog{
+    display:flex;
+    width: 87.2%;
+}
+#back{
+    flex:1;
+}
+
+#submit{
+    flex:3;
+}
+
+#google{
+    width :85%;
+}
+
+.login input, .signup input{
+    font-size: 18px;
+    font-family: 'Crete Round', serif;
+    background-color: rgb(255, 255, 255);
+    width :80%;
+    display: block;
+    padding:12px;
+    margin: 0px 0px 18px 0px;
+}
+.explain{
+    font-size: 18px;
+    font-family: 'Crete Round', serif;
+    margin-bottom: 3px;
+    color: rgb(99, 99, 99); 
+}
+
+#login, #signup,#google {
+    background-color: #fff;
+	border-color: #333;
+	color: #333; 
+    font-size: 18px;
+    font-family: 'Crete Round', serif;
+    padding: 9px 18px;
+    margin-right: 10px;
+}
+
+#back, #submit{
+    background-color: rgb(224, 224, 224);
+	color: #333; 
+    font-size: 18px;
+    font-family: 'Crete Round', serif;
+    padding: 9px;
+    margin-right: 10px;
+}
+
+#login:hover, #signup:hover, #back:hover, #submit:hover,#google:hover{
+    background-color: #333;
+	border: 2px solid #333;
+    color: #fff;
+}
+
+@media(min-width:1600px){
+    img{
+        width:450px;
+        margin-right: 70px;
+    }
+    
+}
+
+@media(max-width:840px){
+    img{
+        width:35vw;
+        margin-right: 0px;
+    }
+    
+}

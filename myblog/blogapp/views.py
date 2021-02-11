@@ -10,8 +10,13 @@ from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 # 각각의 html 페이지들을 view 함수 연결함
+
+
 def blog(request):
-    return render(request,'blog.html')
+    if request.user.is_authenticated:
+        return render(request,'home.html')
+    else:
+        return render(request,'blog.html')
 
 def home(request):
     blogs= Blog.objects

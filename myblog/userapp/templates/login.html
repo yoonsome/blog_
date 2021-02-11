@@ -1,0 +1,34 @@
+{% extends 'base_blog.html' %}
+{% block content %}
+{% load socialaccount %}
+{% providers_media_js %}
+
+
+
+{% if user.is_authenticated %}
+{{user.username}}is login now.
+{% else %}
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="login">
+        <div class="explain">Type your ID.</div>
+        <input name="username" type="text" placeholder="id"/>
+        <div class="explain">Type your PWD.</div>
+        <input name="password" type="password" placeholder="password"/>
+    </div>
+    <div class="buttonlog">
+        <button type="button" id="back" onclick="location.href='/'">back</button>
+        <input type="submit" id="submit" value="login">
+    </div>
+    <br>
+    <button type="button" id="google" onclick="location.href='{% provider_login_url 'google' %}'">🌎&nbsp google login</button>
+    <!-- <a href="{% provider_login_url 'google' %}">google login</a> -->
+</form>
+
+{% endif %}
+
+{% if error %}
+{{error}}
+{% endif %}
+
+{%endblock%}
