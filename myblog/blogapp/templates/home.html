@@ -6,7 +6,9 @@
 
 {%block button %}
 <button type="button" id="post">Welcome, 👨🏻‍🦲 {{user}}</button>
+{% if user.is_authenticated %}
 <button type="button" id="post" onclick="location.href='/post/'">post</button>
+{% endif %}
 <button type="button" id="logout" onclick="location.href='/logout'">{{login}}</button>
 {%endblock%}
 

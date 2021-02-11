@@ -27,8 +27,10 @@
             </textarea>
             <div>
                 <button type="button" onclick="location.href='/home/'"id="back" >back</button>
+                {% if user.username == blog.writer %}
                 <button type="button" onclick="location.href='{% url 'edit' blog.id %}'" id="edit" >edit</button>
                 <button type="button" onclick="location.href='{% url 'delete' blog.id %}'" id="edit" >delete</button>
+                {% endif %}
             </div>
         </div>
     </div>
